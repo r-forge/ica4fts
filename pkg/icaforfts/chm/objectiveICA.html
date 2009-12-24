@@ -1,0 +1,110 @@
+<html><head><title>Calculates the objective function using independent component analysis</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link rel="stylesheet" type="text/css" href="Rchm.css">
+</head>
+<body>
+
+<table width="100%"><tr><td>objectiveICA(icaforfts)</td><td align="right">R Documentation</td></tr></table><object type="application/x-oleobject" classid="clsid:1e2a7bd0-dab9-11d0-b93a-00c04fc99f9e">
+<param name="keyword" value="R:   objectiveICA">
+<param name="keyword" value=" Calculates the objective function using independent component analysis">
+</object>
+
+
+<h2>Calculates the objective function using independent component analysis</h2>
+
+
+<h3>Description</h3>
+
+<p>
+<code>objectiveICA</code> performs independent component analysis on financial time series data.
+It first calls C function theta2w to which multiplies a series of independent Given's rotational matrices. Depending on user input for the method, 
+either Huber or Cosh, the objective function is calculated using C functions either objectiveHC or objectiveLS 
+respectively.
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+objectiveICA(T, E, N, C, PH, method = c("Huber", "Cosh"))
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>T</code></td>
+<td>
+Vector of angles of length p </td></tr>
+<tr valign="top"><td><code>E</code></td>
+<td>
+Financial time series data of dimension nxd </td></tr>
+<tr valign="top"><td><code>N</code></td>
+<td>
+Vector of lags that MUST be arranged in ascending order  </td></tr>
+<tr valign="top"><td><code>C</code></td>
+<td>
+Real number C which is used for Huber substitution or Logcosh substitution </td></tr>
+<tr valign="top"><td><code>PH</code></td>
+<td>
+Phi matrix of weights of dimension q*q </td></tr>
+<tr valign="top"><td><code>method</code></td>
+<td>
+If method is Huber, use Huber substitution method. If method is Cosh, use logcosh substitution method </td></tr>
+</table>
+
+<h3>Details</h3>
+
+<p>
+More details to help above
+</p>
+
+
+<h3>Value</h3>
+
+<p>
+Objective function value.</p>
+
+<h3>Note</h3>
+
+<p>
+further notes
+</p>
+
+
+<h3>Author(s)</h3>
+
+<p>
+Erjie Ang<a href="mailto: ea75@cornell.edu "> ea75@cornell.edu </a>
+</p>
+
+
+<h3>See Also</h3>
+
+<p>
+see also
+</p>
+
+
+<h3>Examples</h3>
+
+<pre>
+##
+d = 2
+n = 10000
+p = d*(d-1)/2
+E = matrix(rnorm(d*n),n,d)
+T = as.matrix(rep(0,p))
+N = as.matrix(c(1,2))
+q = 2*2*p 
+C = 1
+PH = matrix(rnorm(q*q),q,q)
+HCans = objectiveICA(T,E,N,C,PH,method = "Huber")
+LSans = objectiveICA(T,E,N,C,PH,method = "Cosh")
+</pre>
+
+
+
+<hr><div align="center">[Package <em>icaforfts</em> version 0.0 <a href="00Index.html">Index]</a></div>
+
+</body></html>

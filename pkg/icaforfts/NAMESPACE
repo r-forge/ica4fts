@@ -1,0 +1,9 @@
+useDynLib(icaforfts)
+
+export(objectiveICA)
+
+
+
+
+
+
