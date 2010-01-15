@@ -9,10 +9,10 @@
 
 #define absolute(a) (a<0? (-a):(a)) 
 
-SEXP Clip(SEXP X, double *c){
+SEXP clip(SEXP X, double *c){
 	int nrx, ncx;
 	int *xdims;
-	double *xptr,*yptr;
+	double *xptr;
 
 	xdims = getDims(X);
 	nrx = xdims[0]; ncx = xdims[1];

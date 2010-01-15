@@ -24,3 +24,4 @@ SEXP dlogCosh(SEXP X, double *c){
 		UNPROTECT(1);
 		return(X);	
 }//end dlogCosh
+

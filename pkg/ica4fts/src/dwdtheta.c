@@ -2,7 +2,9 @@
 #include <R.h>
 #include <Rinternals.h>
 #include <Rmath.h>
-
+#include "matProd.h"
+#include "identity.h"
+#include "subs.h"
 
 #ifndef getDims
 #define getDims(A) INTEGER(coerceVector(getAttrib(A, R_DimSymbol),INTSXP))

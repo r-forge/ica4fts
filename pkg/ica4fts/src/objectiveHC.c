@@ -2,6 +2,9 @@
 #include <Rinternals.h>
 #include <Rmath.h>
 #include <R_ext/Applic.h> //for dgemm
+#include "huber.h"
+#include "matProd.h"
+#include "crossCovariance.h"
 
 #ifndef getDims
 #define getDims(A) INTEGER(coerceVector(getAttrib(A, R_DimSymbol),INTSXP))
@@ -10,6 +13,7 @@
 #ifndef absolute
 #define absolute(a) (a<0? (-a):(a)) 
 #endif
+
 
 
 /**T: px1  matrix with p angles. E: nxd data matrix. N: column vector containing arbitrary lags. C: constant to 
@@ -26,7 +30,7 @@ SEXP objectiveHC(SEXP W, SEXP E, SEXP N, SEXP C){
 	PROTECT(S = matProd(E,W)); //multiplication of dxd matrix and dxn matrix (transposed from nxd) PROTECT 2
 		
 	SEXP H; 
-	PROTECT(H= Huber(S,&c)); //Huber transform 		PROTECT 3
+	PROTECT(H= huber(S,&c)); //Huber transform 		PROTECT 3
 	
 	SEXP CV; 
 	PROTECT(CV= crossCovariance(H,N)); //PROTECT 4

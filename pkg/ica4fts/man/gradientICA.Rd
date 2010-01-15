@@ -41,4 +41,4 @@ LSans = gradientICA(T,E,N,C,PH,method = "Cosh")
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ finance }
+\keyword{ ts }

@@ -3,6 +3,9 @@
 #include <Rinternals.h>
 #include <Rmath.h>
 #include <R_ext/Applic.h> //for dgemm
+#include "matProd.h"
+#include "identity.h"
+#include "subs.h"
 
 #ifndef getDims
 #define getDims(A) INTEGER(coerceVector(getAttrib(A, R_DimSymbol),INTSXP))

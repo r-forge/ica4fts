@@ -1,7 +1,6 @@
 #include <R.h>
 #include <Rinternals.h>
 #include <Rmath.h>
-#include <R_ext/Applic.h> //for dgemm
 
 #ifndef absolute
 #define absolute(a) (a<0? (-a):(a)) 
@@ -12,7 +11,7 @@
 #endif
 
 /**Huber substitution function*/
-SEXP Huber(SEXP X, double *c){
+SEXP huber(SEXP X, double *c){
 	int nrx, ncx;
 	int *xdims;
 	double *xptr;

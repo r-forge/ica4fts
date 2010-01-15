@@ -1,10 +1,18 @@
 #include <R.h>
 #include <Rinternals.h>
 #include <Rmath.h>
+#include "huber.h"
+#include "clip.h"
+#include "genMean.h"
+#include "crossCovariance.h"
+#include "matProd2.h"
+#include "dwdtheta.h"
 
 #ifndef getDims
 #define getDims(A) INTEGER(coerceVector(getAttrib(A, R_DimSymbol),INTSXP))
 #endif
+
+
 
 /**Returns W[i,j]*/
 double extractElement(SEXP W,int *i,int *j){	
@@ -47,11 +55,11 @@ SEXP gradientHC(SEXP Ag,SEXP E,SEXP S,SEXP H,SEXP N,SEXP PHI){
 	SEXP S2;PROTECT(S2 = Rf_duplicate(S)); //PROTECT 3 - Make a copy
 
 	//Apply huber
-	SEXP Hub; PROTECT(Hub = Huber(S,&h)); //PROTECT 4
+	SEXP Hub; PROTECT(Hub = huber(S,&h)); //PROTECT 4
 	double *hubptr; hubptr = REAL(Hub);		
 
 	//Apply clip
-	SEXP CP; PROTECT(CP = Clip(S2,&h)); //PROTECT 5
+	SEXP CP; PROTECT(CP = clip(S2,&h)); //PROTECT 5
 	double *CPptr; CPptr = REAL(CP);
 		
 	int q;
@@ -190,3 +198,4 @@ SEXP gradientHC(SEXP Ag,SEXP E,SEXP S,SEXP H,SEXP N,SEXP PHI){
 	return dJdT;	
 
 }//end gradientHC
+

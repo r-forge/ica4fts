@@ -49,5 +49,5 @@ PH = matrix(rnorm(q*q),q,q)
 HCans = objectiveICA(T,E,N,C,PH,method = "Huber")
 LSans = objectiveICA(T,E,N,C,PH,method = "Cosh")
 }
-\keyword{ component }
-\keyword{ financial }
+\keyword{ ts }
+

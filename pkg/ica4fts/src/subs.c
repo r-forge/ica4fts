@@ -2,6 +2,7 @@
 #include <Rinternals.h>
 #include <Rmath.h>
 #include <R_ext/Applic.h> //for dgemm
+#include "identity.h"
 
 /**Substitutes identity matrix at i,j coordinates
 Inputs: m (dimension) , i (index 1), j (index 2), ag (angle in radians) */

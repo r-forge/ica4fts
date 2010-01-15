@@ -1,6 +1,12 @@
 #include <R.h>
 #include <Rinternals.h>
 #include <Rmath.h>
+#include "logcosh.h"
+#include "dlogCosh.H"
+#include "genMean.h"
+#include "crossCovariance.h"
+#include "matProd2.h"
+#include "dwdtheta.h"
 
 #ifndef getDims
 #define getDims(A) INTEGER(coerceVector(getAttrib(A, R_DimSymbol),INTSXP))

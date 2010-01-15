@@ -5,6 +5,9 @@ to rules as stated in crossCovariance_B.c. Phi must be of suitable dimension q w
 #include <Rinternals.h>
 #include <Rmath.h>
 #include <R_ext/Applic.h> //for dgemm
+#include "matProd.h"
+#include "logcosh.h"
+#include "crossCovariance.h"
 
 #ifndef getDims
 #define getDims(A) INTEGER(coerceVector(getAttrib(A, R_DimSymbol),INTSXP))
