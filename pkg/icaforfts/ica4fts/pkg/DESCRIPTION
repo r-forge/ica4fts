@@ -1,9 +1,0 @@
-Package:objTest1
-Version: 0.0
-Date: 2009-11-28
-Title: Objective Test 1
-Author: Erjie Ang <aerjie@gmail.com>
-Maintainer: Erjie Ang <aerjie@gmail.com>
-Depends: R (>=2.0.1)
-Description: This package will be useful. Trust me. 
-LIcense: GPL(>=2)
