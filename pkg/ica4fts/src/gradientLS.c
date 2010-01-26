@@ -2,7 +2,7 @@
 #include <Rinternals.h>
 #include <Rmath.h>
 #include "logcosh.h"
-#include "dlogCosh.H"
+#include "dlogCosh.h"
 #include "genMean.h"
 #include "crossCovariance.h"
 #include "matProd2.h"
